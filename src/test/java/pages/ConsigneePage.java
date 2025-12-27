@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.Date;
 import java.util.UUID;
 
@@ -23,7 +21,6 @@ public class ConsigneePage {
         PageFactory.initElements(driver, this);
     }
 
-    /* -------------------- MENU -------------------- */
 
     @FindBy(xpath = "//input[@placeholder='Select']")
     private WebElement dashboardDropdown;
@@ -34,7 +31,7 @@ public class ConsigneePage {
     @FindBy(xpath = "//h1[normalize-space()='QA Pando - Consignees']")
     private WebElement consigneesHeading;
 
-    /* -------------------- ADD CONSIGNEE -------------------- */
+
 
     @FindBy(xpath = "//button[contains(@class,'header_pbtn') and normalize-space()='Add']")
     private WebElement addButton;
@@ -67,12 +64,12 @@ public class ConsigneePage {
     private WebElement saveButton;
 
 
-    /* -------------------- SUCCESS TOAST -------------------- */
+
 
     @FindBy(css = "div.el-message--success[role='alert']")
     private WebElement successToast;
 
-    /* -------------------- SEARCH -------------------- */
+
 
     @FindBy(xpath = "//div[@class='searchterm tagblock pointer']")
     private WebElement searchDropdown;
@@ -80,13 +77,10 @@ public class ConsigneePage {
     @FindBy(xpath = "//input[@placeholder='Enter Name']")
     private WebElement consigneeTextBox;
 
-//    @FindBy(xpath = "//div[@class='list-item']//child::span[contains(text(),'in Name')]")
-//    private WebElement firstSearchResult;
 
     @FindBy(xpath = "//button[text()='Search']")
     private WebElement searchButton;
 
-    /* -------------------- ACTIONS -------------------- */
 
 
     public boolean isConsigneesHeadingDisplayed() {
@@ -99,10 +93,8 @@ public class ConsigneePage {
     public void selectConsigneeFromDropdown() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
-        // Click the dropdown
         wait.until(ExpectedConditions.elementToBeClickable(dashboardDropdown)).click();
 
-        // Scroll into view and click "Consignees"
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", consigneeModule);
         wait.until(ExpectedConditions.elementToBeClickable(consigneeModule)).click();
     }
@@ -164,7 +156,7 @@ public class ConsigneePage {
         return successToast;
     }
 
-    /* -------------------- SEARCH FLOW -------------------- */
+
 
     public void clickSearchDropdown() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
