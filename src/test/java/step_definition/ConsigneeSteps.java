@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.ConsigneePage;
+import utils.SharedData;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,6 +40,7 @@ public class ConsigneeSteps {
 
         createdConsigneeName =
                 "Consignee-" + new SimpleDateFormat("HHmmss").format(new Date());
+        SharedData.createdConsigneeName = createdConsigneeName;
 
         consigneePage.enterConsigneeDetails(
                 createdConsigneeName,

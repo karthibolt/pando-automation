@@ -17,6 +17,8 @@ Feature: Data Manager - Depot Management
     And User searches for depot
      And User creates a gate for the searched depot
 
+
+
   Scenario: Create a new Consignees
     When user navigates to the consignees module in dropdown
     And User clicks on Add consignee
@@ -45,3 +47,18 @@ Feature: Data Manager - Depot Management
     And user enters vehicle details
     Then Vehicle creation success message should be displayed
     And user searches for vehicle
+
+
+  Scenario: Create a new Indent
+    When user navigates to the indent module in dropdown
+    And user clicks on Add Indent
+    And user search for Depot name
+  And user search for Consignee  name
+  And user enters indent details
+  And user searches for indent
+    And user enters truck assignment details and submits
+    And user reports the truck and marks it arrived
+
+#  Scenario: Upload bulk excel file for indent creation
+#    When user uploads bulk excel file "IndentUpload.xlsx"
+#    Then bulk excel file should be uploaded successfully

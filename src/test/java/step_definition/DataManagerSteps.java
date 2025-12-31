@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.DataManagerPage;
+import utils.SharedData;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,6 +50,7 @@ public class DataManagerSteps {
     public void user_enters_depot_details() {
 
         createdDepotName = "Depot-" + new SimpleDateFormat("HHmmss").format(new Date());
+        SharedData.createdDepotName = createdDepotName;
 
         dataManagerPage.enterDepotDetails(
                 createdDepotName,
