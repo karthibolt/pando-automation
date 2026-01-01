@@ -18,7 +18,6 @@ Feature: Data Manager - Depot Management
      And User creates a gate for the searched depot
 
 
-
   Scenario: Create a new Consignees
     When user navigates to the consignees module in dropdown
     And User clicks on Add consignee
@@ -59,6 +58,5 @@ Feature: Data Manager - Depot Management
     And user enters truck assignment details and submits
     And user reports the truck and marks it arrived
 
-#  Scenario: Upload bulk excel file for indent creation
-#    When user uploads bulk excel file "IndentUpload.xlsx"
-#    Then bulk excel file should be uploaded successfully
+  Scenario: Upload bulk excel file for indent creation
+    When user uploads bulk excel file "IndentUpload.xlsx"

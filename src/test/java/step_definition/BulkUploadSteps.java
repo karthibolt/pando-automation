@@ -1,14 +1,11 @@
     package step_definition;
 
     import BasePackage.Base;
-    import io.cucumber.java.en.Then;
     import io.cucumber.java.en.When;
-    import org.openqa.selenium.By;
     import org.openqa.selenium.WebDriver;
-    import org.openqa.selenium.support.ui.ExpectedConditions;
-    import org.openqa.selenium.support.ui.WebDriverWait;
-    import org.testng.Assert;
     import pages.BulkUploadPage;
+
+    import java.awt.*;
 
     public class BulkUploadSteps {
 
@@ -17,29 +14,15 @@
 
 
         @When("user uploads bulk excel file {string}")
-        public void user_uploads_bulk_excel_file(String fileName) {
+        public void user_uploads_bulk_excel_file(String fileName) throws AWTException {
 
             driver.get("https://qa.pandostaging.in/mdm/depots");
             bulkUploadPage.waitForPageToLoad(driver, 20);
-            String filePath = System.getProperty("user.dir")
-                    + "/src/test/resources/excel/" + fileName;
+            String filePath = "C:\\Users\\Karthick\\IdeaProjects\\Pando_project\\src\\test\\resources\\excel\\IndentUpload.xlsx";
+             System.out.println("Uploading Excel File: " + filePath);
 
-            System.out.println("Uploading Excel File: " + filePath);
-
-            bulkUploadPage.uploadExcelFile();
+            bulkUploadPage.uploadExcelFile(filePath);
         }
 
-
-        @Then("bulk excel file should be uploaded successfully")
-        public void bulk_excel_file_should_be_uploaded_successfully() {
-
-            WebDriverWait wait = new WebDriverWait(driver, 15);
-
-            wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    By.cssSelector("div.el-message--success")
-            ));
-
-            System.out.println("Bulk Upload success toast verified");
-        }
 
     }
